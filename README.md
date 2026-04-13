@@ -16,7 +16,7 @@ The system uses cutting-edge technologies like the **Web Speech API** and **Medi
 
 ```
 GBCS/
-├── index2.html              # Main landing page (home)
+├── index.html              # Main landing page (home)
 ├── blind2.html              # Speech-to-Text interface
 ├── deaf02.html              # Visual Gesture Recognition interface
 ├── normal2.html             # Text-to-Speech interface
