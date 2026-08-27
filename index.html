@@ -1,223 +1,945 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Log In or Sign Up — GCS</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles/auth.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="GBCS — Inclusive communication platform">
+  <title>GBCS — Log In or Sign Up</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Use your supplied styling -->
+  <link rel="stylesheet" href="styles/auth.css">
 </head>
+
 <body class="auth-body">
 
+  <!-- =========================
+       TOP NAVIGATION
+  ========================== -->
   <header class="auth-topbar">
-    <a href="home.html" class="auth-logo">GBCS</a>
+
+    <a href="home.html" class="auth-logo">
+      GBCS
+    </a>
+
     <div data-auth-status aria-live="polite"></div>
+
   </header>
 
+
+  <!-- =========================
+       MAIN CONTENT
+  ========================== -->
   <main class="auth-main">
+
     <div class="auth-layout">
+
+      <!-- =========================
+           LEFT PROJECT INTRO
+      ========================== -->
       <section class="project-intro" aria-labelledby="project-title">
-        <p class="project-kicker">Inclusive communication platform</p>
-        <h1 id="project-title" class="project-title">One account.<br><span>Three ways to connect.</span></h1>
-        <p class="project-summary">GBCS helps people communicate across different abilities by combining speech recognition, gesture detection, and text-to-speech in one browser-based experience.</p>
 
-        <div class="project-modes" aria-label="GBCS communication modes">
-          <article class="project-mode project-mode--blind">
-            <span class="project-mode-icon" aria-hidden="true">&#128065;</span>
-            <div>
-              <h2>Blind Mode</h2>
-              <p>Speech-to-text with keyboard and screen-reader support.</p>
-            </div>
-          </article>
-          <article class="project-mode project-mode--deaf">
-            <span class="project-mode-icon" aria-hidden="true">&#128066;</span>
-            <div>
-              <h2>Deaf Mode</h2>
-              <p>Camera-based hand gesture recognition with visual output.</p>
-            </div>
-          </article>
-          <article class="project-mode project-mode--normal">
-            <span class="project-mode-icon" aria-hidden="true">&#128266;</span>
-            <div>
-              <h2>Normal Mode</h2>
-              <p>Text-to-speech with voice, pitch, speed, and volume controls.</p>
-            </div>
-          </article>
+        <p class="project-kicker">
+          INCLUSIVE COMMUNICATION PLATFORM
+        </p>
+
+        <h1 id="project-title" class="project-title">
+          One account.
+          <br>
+          <span>Three ways to connect.</span>
+        </h1>
+
+        <p class="project-summary">
+          GBCS brings speech recognition, hand gesture detection,
+          and text-to-speech together in one accessible communication
+          platform designed to make digital conversations easier for everyone.
+        </p>
+
+
+    
+
+      <!-- =========================
+           AUTHENTICATION CARD
+      ========================== -->
+      <section class="auth-card">
+
+        <!-- =========================
+             MODE STRIP
+        ========================== -->
+        <div
+          class="auth-mode-strip"
+          aria-label="Communication modes"
+        >
+
+          <span class="auth-mode-chip auth-mode-chip--blind">
+            Blind
+          </span>
+
+          <span class="auth-mode-chip auth-mode-chip--deaf">
+            Deaf
+          </span>
+
+          <span class="auth-mode-chip auth-mode-chip--normal">
+            Normal
+          </span>
+
         </div>
 
-        <div class="project-tech">
-          <span>Web Speech API</span>
-          <span>MediaPipe Hands</span>
-          <span>Accessibility first</span>
+
+        <!-- =========================
+             AUTH HEADING
+        ========================== -->
+        <h2 class="auth-heading" id="auth-heading">
+          Welcome Back
+        </h2>
+
+        <p class="auth-subtext" id="auth-subtext">
+          Log in to continue using your GBCS communication modes.
+        </p>
+
+
+        <!-- =========================
+             LOGIN / SIGNUP TABS
+        ========================== -->
+        <div
+          class="auth-tabs"
+          role="tablist"
+          aria-label="Authentication"
+        >
+
+          <button
+            type="button"
+            class="auth-tab"
+            id="tab-login"
+            role="tab"
+            aria-selected="true"
+            aria-controls="panel-login"
+          >
+            Log In
+          </button>
+
+          <button
+            type="button"
+            class="auth-tab"
+            id="tab-signup"
+            role="tab"
+            aria-selected="false"
+            aria-controls="panel-signup"
+          >
+            Sign Up
+          </button>
+
         </div>
+
+
+        <!-- =========================
+             LOGIN PANEL
+        ========================== -->
+        <section
+          id="panel-login"
+          role="tabpanel"
+          aria-labelledby="tab-login"
+        >
+
+          <form
+            id="login-form"
+            novalidate
+          >
+
+            <!-- EMAIL -->
+            <div class="auth-field">
+
+              <label
+                class="auth-label"
+                for="login-email"
+              >
+                Email Address
+              </label>
+
+              <input
+                class="auth-input"
+                type="email"
+                id="login-email"
+                name="email"
+                autocomplete="email"
+                placeholder="Enter your email"
+                required
+              >
+
+            </div>
+
+
+            <!-- PASSWORD -->
+            <div class="auth-field">
+
+              <label
+                class="auth-label"
+                for="login-password"
+              >
+                Password
+              </label>
+
+              <input
+                class="auth-input"
+                type="password"
+                id="login-password"
+                name="password"
+                autocomplete="current-password"
+                placeholder="Enter your password"
+                required
+                minlength="6"
+              >
+
+            </div>
+
+
+            <!-- LOGIN BUTTON -->
+            <button
+              type="submit"
+              class="auth-btn"
+              id="login-submit"
+            >
+              Log In
+            </button>
+
+
+            <!-- STATUS -->
+            <div
+              class="auth-status"
+              id="login-status"
+              role="status"
+              aria-live="polite"
+            ></div>
+
+          </form>
+
+
+          <p class="auth-switch">
+            Don't have an account?
+            <a href="#signup" id="switch-to-signup">
+              Create one
+            </a>
+          </p>
+
+        </section>
+
+
+        <!-- =========================
+             SIGNUP PANEL
+        ========================== -->
+        <section
+          id="panel-signup"
+          role="tabpanel"
+          aria-labelledby="tab-signup"
+          hidden
+        >
+
+          <form
+            id="signup-form"
+            novalidate
+          >
+
+            <!-- NAME -->
+            <div class="auth-field">
+
+              <label
+                class="auth-label"
+                for="signup-name"
+              >
+                Full Name
+              </label>
+
+              <input
+                class="auth-input"
+                type="text"
+                id="signup-name"
+                name="name"
+                autocomplete="name"
+                placeholder="Enter your full name"
+                required
+              >
+
+            </div>
+
+
+            <!-- EMAIL -->
+            <div class="auth-field">
+
+              <label
+                class="auth-label"
+                for="signup-email"
+              >
+                Email Address
+              </label>
+
+              <input
+                class="auth-input"
+                type="email"
+                id="signup-email"
+                name="email"
+                autocomplete="email"
+                placeholder="Enter your email"
+                required
+              >
+
+            </div>
+
+
+            <!-- PASSWORD -->
+            <div class="auth-field">
+
+              <label
+                class="auth-label"
+                for="signup-password"
+              >
+                Create Password
+              </label>
+
+              <input
+                class="auth-input"
+                type="password"
+                id="signup-password"
+                name="password"
+                autocomplete="new-password"
+                placeholder="Create a password"
+                required
+                minlength="6"
+              >
+
+            </div>
+
+
+            <!-- CONFIRM PASSWORD -->
+            <div class="auth-field">
+
+              <label
+                class="auth-label"
+                for="signup-confirm"
+              >
+                Confirm Password
+              </label>
+
+              <input
+                class="auth-input"
+                type="password"
+                id="signup-confirm"
+                name="confirm"
+                autocomplete="new-password"
+                placeholder="Confirm your password"
+                required
+                minlength="6"
+              >
+
+            </div>
+
+
+            <!-- PREFERRED MODE -->
+            <div class="auth-field">
+
+              <label
+                class="auth-label"
+                for="signup-mode"
+              >
+                Preferred Communication Mode
+              </label>
+
+              <select
+                class="auth-select"
+                id="signup-mode"
+                name="mode"
+              >
+
+                <option value="">
+                  No preference
+                </option>
+
+                <option value="blind">
+                  Blind — Speech to Text
+                </option>
+
+                <option value="deaf">
+                  Deaf — Gesture Detection
+                </option>
+
+                <option value="normal">
+                  Normal — Text to Speech
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <!-- SIGNUP BUTTON -->
+            <button
+              type="submit"
+              class="auth-btn"
+              id="signup-submit"
+            >
+              Create Account
+            </button>
+
+
+            <!-- STATUS -->
+            <div
+              class="auth-status"
+              id="signup-status"
+              role="status"
+              aria-live="polite"
+            ></div>
+
+          </form>
+
+
+          <p class="auth-switch">
+            Already have an account?
+            <a href="#login" id="switch-to-login">
+              Log in
+            </a>
+          </p>
+
+        </section>
+
       </section>
 
-      <div class="auth-card">
-      <div class="auth-mode-strip" aria-hidden="true">
-        <span class="auth-mode-chip auth-mode-chip--blind">Blind</span>
-        <span class="auth-mode-chip auth-mode-chip--deaf">Deaf</span>
-        <span class="auth-mode-chip auth-mode-chip--normal">Normal</span>
-      </div>
-
-      <!-- Tabs -->
-      <div class="auth-tabs" role="tablist" aria-label="Log in or sign up">
-        <button type="button" class="auth-tab" id="tab-login" role="tab" aria-selected="true" aria-controls="panel-login">Log In</button>
-        <button type="button" class="auth-tab" id="tab-signup" role="tab" aria-selected="false" aria-controls="panel-signup">Sign Up</button>
-      </div>
-
-      <!-- Login panel -->
-      <section id="panel-login" role="tabpanel" aria-labelledby="tab-login">
-        <p class="auth-subtext">Welcome back. Log in with your email and password.</p>
-        <form id="login-form" novalidate>
-          <div class="auth-field">
-            <label class="auth-label" for="login-email">Email</label>
-            <input class="auth-input" type="email" id="login-email" name="email" autocomplete="email" required />
-          </div>
-          <div class="auth-field">
-            <label class="auth-label" for="login-password">Password</label>
-            <input class="auth-input" type="password" id="login-password" name="password" autocomplete="current-password" required minlength="6" />
-          </div>
-          <button type="submit" class="auth-btn" id="login-submit">Log In</button>
-          <div class="auth-status" id="login-status" role="status" aria-live="polite"></div>
-        </form>
-      </section>
-
-      <!-- Signup panel -->
-      <section id="panel-signup" role="tabpanel" aria-labelledby="tab-signup" hidden>
-        <p class="auth-subtext">Create one account to use every mode.</p>
-        <form id="signup-form" novalidate>
-          <div class="auth-field">
-            <label class="auth-label" for="signup-name">Name</label>
-            <input class="auth-input" type="text" id="signup-name" name="name" autocomplete="name" required />
-          </div>
-          <div class="auth-field">
-            <label class="auth-label" for="signup-email">Email</label>
-            <input class="auth-input" type="email" id="signup-email" name="email" autocomplete="email" required />
-          </div>
-          <div class="auth-field">
-            <label class="auth-label" for="signup-password">Password</label>
-            <input class="auth-input" type="password" id="signup-password" name="password" autocomplete="new-password" required minlength="6" />
-          </div>
-          <div class="auth-field">
-            <label class="auth-label" for="signup-confirm">Confirm Password</label>
-            <input class="auth-input" type="password" id="signup-confirm" name="confirm" autocomplete="new-password" required minlength="6" />
-          </div>
-          <div class="auth-field">
-            <label class="auth-label" for="signup-mode">Preferred mode (optional)</label>
-            <select class="auth-select" id="signup-mode" name="mode">
-              <option value="">No preference</option>
-              <option value="blind">Blind — speech to text</option>
-              <option value="deaf">Deaf — gesture detection</option>
-              <option value="normal">Normal — text to speech</option>
-            </select>
-          </div>
-          <button type="submit" class="auth-btn" id="signup-submit">Create Account</button>
-          <div class="auth-status" id="signup-status" role="status" aria-live="polite"></div>
-        </form>
-      </section>
-      </div>
     </div>
+
   </main>
 
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
   <script type="module">
-    import { logIn, signUp, friendlyAuthError, watchAuthUI } from "./scripts/auth.js";
+
+    import {
+      logIn,
+      signUp,
+      friendlyAuthError,
+      watchAuthUI
+    } from "./scripts/auth.js";
+
+
+    /* =========================
+       AUTH UI
+    ========================== */
 
     watchAuthUI();
 
-    // --- Tab switching ---
-    const tabLogin = document.getElementById("tab-login");
-    const tabSignup = document.getElementById("tab-signup");
-    const panelLogin = document.getElementById("panel-login");
-    const panelSignup = document.getElementById("panel-signup");
+
+    /* =========================
+       ELEMENTS
+    ========================== */
+
+    const tabLogin =
+      document.getElementById("tab-login");
+
+    const tabSignup =
+      document.getElementById("tab-signup");
+
+    const panelLogin =
+      document.getElementById("panel-login");
+
+    const panelSignup =
+      document.getElementById("panel-signup");
+
+    const authHeading =
+      document.getElementById("auth-heading");
+
+    const authSubtext =
+      document.getElementById("auth-subtext");
+
+
+    /* =========================
+       TAB SWITCHING
+    ========================== */
 
     function showTab(which) {
+
       const isLogin = which === "login";
-      tabLogin.setAttribute("aria-selected", String(isLogin));
-      tabSignup.setAttribute("aria-selected", String(!isLogin));
+
+
+      tabLogin.setAttribute(
+        "aria-selected",
+        String(isLogin)
+      );
+
+      tabSignup.setAttribute(
+        "aria-selected",
+        String(!isLogin)
+      );
+
+
       panelLogin.hidden = !isLogin;
       panelSignup.hidden = isLogin;
-      (isLogin ? document.getElementById("login-email") : document.getElementById("signup-name")).focus();
+
+
+      if (isLogin) {
+
+        authHeading.textContent =
+          "Welcome Back";
+
+        authSubtext.textContent =
+          "Log in to continue using your GBCS communication modes.";
+
+        document
+          .getElementById("login-email")
+          .focus();
+
+      } else {
+
+        authHeading.textContent =
+          "Create Your Account";
+
+        authSubtext.textContent =
+          "Create one account and access every GBCS communication mode.";
+
+        document
+          .getElementById("signup-name")
+          .focus();
+
+      }
+
     }
 
-    tabLogin.addEventListener("click", () => showTab("login"));
-    tabSignup.addEventListener("click", () => showTab("signup"));
 
-    // Arrow-key tab navigation for accessibility
-    document.querySelectorAll('[role="tab"]').forEach((tab) => {
-      tab.addEventListener("keydown", (e) => {
-        if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
-          e.preventDefault();
-          (tab === tabLogin ? tabSignup : tabLogin).focus();
-          showTab(tab === tabLogin ? "signup" : "login");
-        }
+    tabLogin.addEventListener(
+      "click",
+      () => showTab("login")
+    );
+
+
+    tabSignup.addEventListener(
+      "click",
+      () => showTab("signup")
+    );
+
+
+    /* =========================
+       QUICK SWITCH LINKS
+    ========================== */
+
+    document
+      .getElementById("switch-to-signup")
+      .addEventListener("click", event => {
+
+        event.preventDefault();
+
+        showTab("signup");
+
+        history.replaceState(
+          null,
+          "",
+          "#signup"
+        );
+
       });
-    });
 
-    // If the page is opened as index.html#signup, land on the signup tab.
-    if (window.location.hash === "#signup") showTab("signup");
 
-    function setStatus(el, message, state) {
-      el.textContent = message;
-      if (state) el.setAttribute("data-state", state);
-      else el.removeAttribute("data-state");
+    document
+      .getElementById("switch-to-login")
+      .addEventListener("click", event => {
+
+        event.preventDefault();
+
+        showTab("login");
+
+        history.replaceState(
+          null,
+          "",
+          "#login"
+        );
+
+      });
+
+
+    /* =========================
+       KEYBOARD ACCESSIBILITY
+    ========================== */
+
+    document
+      .querySelectorAll('[role="tab"]')
+      .forEach(tab => {
+
+        tab.addEventListener(
+          "keydown",
+          event => {
+
+            if (
+              event.key === "ArrowRight" ||
+              event.key === "ArrowLeft"
+            ) {
+
+              event.preventDefault();
+
+              if (tab === tabLogin) {
+
+                tabSignup.focus();
+
+                showTab("signup");
+
+              } else {
+
+                tabLogin.focus();
+
+                showTab("login");
+
+              }
+
+            }
+
+          }
+        );
+
+      });
+
+
+    /* =========================
+       STATUS MESSAGE
+    ========================== */
+
+    function setStatus(
+      element,
+      message,
+      state
+    ) {
+
+      element.textContent = message;
+
+      if (state) {
+
+        element.setAttribute(
+          "data-state",
+          state
+        );
+
+      } else {
+
+        element.removeAttribute(
+          "data-state"
+        );
+
+      }
+
     }
 
-    // --- Login form ---
-    const loginForm = document.getElementById("login-form");
-    const loginStatus = document.getElementById("login-status");
-    const loginSubmit = document.getElementById("login-submit");
 
-    loginForm.addEventListener("submit", async (event) => {
-      event.preventDefault();
-      setStatus(loginStatus, "", null);
-      const email = document.getElementById("login-email").value.trim();
-      const password = document.getElementById("login-password").value;
+    /* =========================
+       LOGIN
+    ========================== */
 
-      loginSubmit.disabled = true;
-      loginSubmit.textContent = "Logging in…";
-      try {
-        await logIn({ email, password });
-        setStatus(loginStatus, "Logged in. Redirecting…", "success");
-        window.location.href = "home.html";
-      } catch (error) {
-        setStatus(loginStatus, friendlyAuthError(error), "error");
-        loginSubmit.disabled = false;
-        loginSubmit.textContent = "Log In";
+    const loginForm =
+      document.getElementById("login-form");
+
+    const loginStatus =
+      document.getElementById("login-status");
+
+    const loginSubmit =
+      document.getElementById("login-submit");
+
+
+    loginForm.addEventListener(
+      "submit",
+      async event => {
+
+        event.preventDefault();
+
+
+        setStatus(
+          loginStatus,
+          "",
+          null
+        );
+
+
+        const email =
+          document
+            .getElementById("login-email")
+            .value
+            .trim();
+
+
+        const password =
+          document
+            .getElementById("login-password")
+            .value;
+
+
+        if (!email || !password) {
+
+          setStatus(
+            loginStatus,
+            "Please enter your email and password.",
+            "error"
+          );
+
+          return;
+
+        }
+
+
+        loginSubmit.disabled = true;
+
+        loginSubmit.textContent =
+          "Logging In...";
+
+
+        try {
+
+          await logIn({
+            email,
+            password
+          });
+
+
+          setStatus(
+            loginStatus,
+            "Logged in successfully. Redirecting...",
+            "success"
+          );
+
+
+          loginSubmit.textContent =
+            "Success";
+
+
+          setTimeout(() => {
+
+            window.location.href =
+              "home.html";
+
+          }, 700);
+
+
+        } catch (error) {
+
+          setStatus(
+            loginStatus,
+            friendlyAuthError(error),
+            "error"
+          );
+
+
+          loginSubmit.disabled = false;
+
+          loginSubmit.textContent =
+            "Log In";
+
+        }
+
       }
-    });
+    );
 
-    // --- Signup form ---
-    const signupForm = document.getElementById("signup-form");
-    const signupStatus = document.getElementById("signup-status");
-    const signupSubmit = document.getElementById("signup-submit");
 
-    signupForm.addEventListener("submit", async (event) => {
-      event.preventDefault();
-      setStatus(signupStatus, "", null);
-      const name = document.getElementById("signup-name").value.trim();
-      const email = document.getElementById("signup-email").value.trim();
-      const password = document.getElementById("signup-password").value;
-      const confirm = document.getElementById("signup-confirm").value;
-      const preferredMode = document.getElementById("signup-mode").value;
+    /* =========================
+       SIGN UP
+    ========================== */
 
-      if (password !== confirm) {
-        setStatus(signupStatus, "Passwords don't match.", "error");
-        return;
+    const signupForm =
+      document.getElementById("signup-form");
+
+    const signupStatus =
+      document.getElementById("signup-status");
+
+    const signupSubmit =
+      document.getElementById("signup-submit");
+
+
+    signupForm.addEventListener(
+      "submit",
+      async event => {
+
+        event.preventDefault();
+
+
+        setStatus(
+          signupStatus,
+          "",
+          null
+        );
+
+
+        const name =
+          document
+            .getElementById("signup-name")
+            .value
+            .trim();
+
+
+        const email =
+          document
+            .getElementById("signup-email")
+            .value
+            .trim();
+
+
+        const password =
+          document
+            .getElementById("signup-password")
+            .value;
+
+
+        const confirm =
+          document
+            .getElementById("signup-confirm")
+            .value;
+
+
+        const preferredMode =
+          document
+            .getElementById("signup-mode")
+            .value;
+
+
+        /* Validation */
+
+        if (
+          !name ||
+          !email ||
+          !password ||
+          !confirm
+        ) {
+
+          setStatus(
+            signupStatus,
+            "Please complete all required fields.",
+            "error"
+          );
+
+          return;
+
+        }
+
+
+        if (password.length < 6) {
+
+          setStatus(
+            signupStatus,
+            "Password must contain at least 6 characters.",
+            "error"
+          );
+
+          return;
+
+        }
+
+
+        if (password !== confirm) {
+
+          setStatus(
+            signupStatus,
+            "Passwords do not match.",
+            "error"
+          );
+
+          return;
+
+        }
+
+
+        signupSubmit.disabled = true;
+
+        signupSubmit.textContent =
+          "Creating Account...";
+
+
+        try {
+
+          await signUp({
+            name,
+            email,
+            password,
+            preferredMode
+          });
+
+
+          setStatus(
+            signupStatus,
+            "Account created successfully. Redirecting...",
+            "success"
+          );
+
+
+          signupSubmit.textContent =
+            "Account Created";
+
+
+          setTimeout(() => {
+
+            window.location.href =
+              "home.html";
+
+          }, 700);
+
+
+        } catch (error) {
+
+          setStatus(
+            signupStatus,
+            friendlyAuthError(error),
+            "error"
+          );
+
+
+          signupSubmit.disabled = false;
+
+          signupSubmit.textContent =
+            "Create Account";
+
+        }
+
       }
+    );
 
-      signupSubmit.disabled = true;
-      signupSubmit.textContent = "Creating account…";
-      try {
-        await signUp({ name, email, password, preferredMode });
-        setStatus(signupStatus, "Account created. Redirecting…", "success");
-        window.location.href = "home.html";
-      } catch (error) {
-        setStatus(signupStatus, friendlyAuthError(error), "error");
-        signupSubmit.disabled = false;
-        signupSubmit.textContent = "Create Account";
+
+    /* =========================
+       URL HASH SUPPORT
+    ========================== */
+
+    if (
+      window.location.hash === "#signup"
+    ) {
+
+      showTab("signup");
+
+    } else {
+
+      showTab("login");
+
+    }
+
+
+    /* =========================
+       BROWSER HASH CHANGES
+    ========================== */
+
+    window.addEventListener(
+      "hashchange",
+      () => {
+
+        if (
+          window.location.hash === "#signup"
+        ) {
+
+          showTab("signup");
+
+        } else {
+
+          showTab("login");
+
+        }
+
       }
-    });
+    );
+
   </script>
+
 </body>
 </html>
