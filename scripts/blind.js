@@ -22,6 +22,7 @@ let fullTranscript = '';
 let audioFeedbackEnabled = false;
 
 // Speech Synthesis for audio feedback
+
 const synth = window.speechSynthesis;
 
 // Initialize
