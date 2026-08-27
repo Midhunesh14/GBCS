@@ -6,13 +6,16 @@
 // 4. In the Firebase console: Authentication -> Sign-in method -> enable "Email/Password".
 // 5. In the Firebase console: Firestore Database -> Create database (start in production mode),
 //    then paste the rules from scripts/firestore.rules into Firestore -> Rules.
+//
+// IMPORTANT: every firebasejs import across this project (here and in auth.js)
+// must use the SAME version number. Mixing versions breaks app registration.
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-analytics.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCNvHU4ATLlKFh_B9-PDtHZuamUJsacZxw,
+  apiKey: "AIzaSyCNvHU4ATLlKFh_B9-PDtHZuamUJsacZxw",
   authDomain: "gbcs-mid14.firebaseapp.com",
   projectId: "gbcs-mid14",
   storageBucket: "gbcs-mid14.firebasestorage.app",

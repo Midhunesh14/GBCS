@@ -75,7 +75,7 @@
       try {
         await logIn({ email, password });
         setStatus("Logged in. Redirecting…", "success");
-        window.location.href = "index.html";
+        window.location.href = "home.html";
       } catch (error) {
         setStatus(friendlyAuthError(error), "error");
         submitBtn.disabled = false;

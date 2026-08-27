@@ -154,7 +154,7 @@
       });
     });
 
-    // If the page is opened as account.html#signup, land on the signup tab.
+    // If the page is opened as index.html#signup, land on the signup tab.
     if (window.location.hash === "#signup") showTab("signup");
 
     function setStatus(el, message, state) {
@@ -179,7 +179,7 @@
       try {
         await logIn({ email, password });
         setStatus(loginStatus, "Logged in. Redirecting…", "success");
-        window.location.href = "index.html";
+        window.location.href = "home.html";
       } catch (error) {
         setStatus(loginStatus, friendlyAuthError(error), "error");
         loginSubmit.disabled = false;
@@ -211,7 +211,7 @@
       try {
         await signUp({ name, email, password, preferredMode });
         setStatus(signupStatus, "Account created. Redirecting…", "success");
-        window.location.href = "index.html";
+        window.location.href = "home.html";
       } catch (error) {
         setStatus(signupStatus, friendlyAuthError(error), "error");
         signupSubmit.disabled = false;

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Sign Up — GCBS</title>
+<title>Sign Up — GCS</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles/auth.css" />
@@ -11,7 +11,7 @@
 <body class="auth-body">
 
   <header class="auth-topbar">
-    <a href="home.html" class="auth-logo">GCBS</a>
+    <a href="home.html" class="auth-logo">GCS</a>
     <a href="home.html" class="auth-topbar-link">&larr; Back to home</a>
   </header>
 
@@ -103,7 +103,7 @@
       try {
         await signUp({ name, email, password, preferredMode });
         setStatus("Account created. Redirecting…", "success");
-        window.location.href = "index.html";
+        window.location.href = "home.html";
       } catch (error) {
         setStatus(friendlyAuthError(error), "error");
         submitBtn.disabled = false;
