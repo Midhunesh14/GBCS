@@ -12,6 +12,7 @@
 
   <header class="auth-topbar">
     <a href="home.html" class="auth-logo">GBCS</a>
+    <div data-auth-status aria-live="polite"></div>
   </header>
 
   <main class="auth-main">
@@ -120,7 +121,9 @@
   </main>
 
   <script type="module">
-    import { logIn, signUp, friendlyAuthError } from "./scripts/auth.js";
+    import { logIn, signUp, friendlyAuthError, watchAuthUI } from "./scripts/auth.js";
+
+    watchAuthUI();
 
     // --- Tab switching ---
     const tabLogin = document.getElementById("tab-login");

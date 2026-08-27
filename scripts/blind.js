@@ -1,3 +1,5 @@
+const authReady = import("./auth.js").then(({ requireAuth }) => requireAuth());
+
 // Speech Recognition setup
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
@@ -35,7 +37,7 @@ function init() {
     startBtn.addEventListener('click', startListening);
     stopBtn.addEventListener('click', stopListening);
     clearBtn.addEventListener('click', clearText);
-    audioFeedbackToggle.addEventListener('change', toggleAudioFeedback);
+    audioFeedbackToggle?.addEventListener('change', toggleAudioFeedback);
     
     // Load saved preferences
     loadPreferences();
@@ -254,14 +256,16 @@ function announceToScreenReader(message) {
 function loadPreferences() {
     const savedAudioFeedback = localStorage.getItem('audioFeedbackEnabled');
     if (savedAudioFeedback === 'true') {
-        audioFeedbackToggle.checked = true;
+        if (audioFeedbackToggle) audioFeedbackToggle.checked = true;
         audioFeedbackEnabled = true;
     }
 }
 
 // Initialize on page load
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-} else {
-    init();
-}
+authReady.then(() => {
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+});

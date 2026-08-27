@@ -1,5 +1,16 @@
 # GCS — Gesture Communication System
 
+## Running locally
+
+Install the development dependency once, then start the static server:
+
+```bash
+npm install
+npm run dev
+```
+
+Open `http://localhost:5173` in your browser. The server is required because the project uses ES modules and Firebase imports.
+
 ## 📌 Project Overview
 
 **GCS (Gesture Communication System)** is a comprehensive web-based accessibility application designed to break communication barriers for people with different abilities. It provides three distinct modes:

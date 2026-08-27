@@ -1,3 +1,5 @@
+const authReady = import("./auth.js").then(({ requireAuth }) => requireAuth());
+
 // Check browser support
 if (!('speechSynthesis' in window)) {
     alert('Text-to-Speech is not supported in this browser. Please use Chrome, Edge, Safari, or Firefox.');
@@ -351,11 +353,13 @@ function loadSavedSettings() {
 }
 
 // Initialize on page load
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-} else {
-    init();
-}
+authReady.then(() => {
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+});
 
 // Handle page visibility change (stop speaking when tab is hidden)
 document.addEventListener('visibilitychange', () => {

@@ -17,6 +17,7 @@
       GCS
     </div>
     <div class="nav-tag">👂 DEAF MODE</div>
+    <div data-auth-status aria-live="polite"></div>
   </nav>
 
   <!-- ══ TICKER ════════════════════════════════ -->
@@ -275,6 +276,10 @@
       };
     }
   });
+  </script>
+  <script type="module">
+    import { watchAuthUI } from "./scripts/auth.js";
+    watchAuthUI();
   </script>
 </body>
 </html>

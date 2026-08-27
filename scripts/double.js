@@ -1,5 +1,7 @@
+const authReady = import("./auth.js").then(({ requireAuth }) => requireAuth());
+
 /* ============================================================
-   single.js  —  GCS Gesture Detection Engine
+  single.js  —  GCS Gesture Detection Engine
    Matches deaf02.html element IDs:
      video   → #video-feed
      canvas  → #overlay-canvas
@@ -352,18 +354,20 @@ function showGesture(text) {
    SECTION 7 — MEDIAPIPE HANDS SETUP
    ============================================================ */
 
-const hands = new Hands({
-  locateFile: file => `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`,
-});
+let hands;
+const handsReady = authReady.then(() => {
+  hands = new Hands({
+    locateFile: file => `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`,
+  });
 
-hands.setOptions({
-  maxNumHands: 2,
-  modelComplexity: 1,
-  minDetectionConfidence: 0.75,
-  minTrackingConfidence: 0.75,
-});
+  hands.setOptions({
+    maxNumHands: 2,
+    modelComplexity: 1,
+    minDetectionConfidence: 0.75,
+    minTrackingConfidence: 0.75,
+  });
 
-hands.onResults(results => {
+  hands.onResults(results => {
   /* size canvas to match live video */
   canvas.width  = video.videoWidth  || WIDTH;
   canvas.height = video.videoHeight || HEIGHT;
@@ -390,6 +394,7 @@ hands.onResults(results => {
   }
   if (leftHand)       showGesture(detectSingleHand(leftHand,  "Left"));
   else if (rightHand) showGesture(detectSingleHand(rightHand, "Right"));
+  });
 });
 
 /* ============================================================
@@ -404,6 +409,7 @@ window.startCamera = async function () {
   if (mpCamera) return; /* already running */
 
   try {
+    await handsReady;
     /* Ask for camera permission explicitly first */
     const stream = await navigator.mediaDevices.getUserMedia({
       video: { width: { ideal: WIDTH }, height: { ideal: HEIGHT }, facingMode: "user" }

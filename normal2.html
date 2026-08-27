@@ -14,6 +14,7 @@
     <a href="home.html" class="back-link">← BACK</a>
     <div class="nav-logo"><div class="nav-dot dot-yellow"></div>GCS</div>
     <div class="nav-tag">👥 Normal Mode</div>
+    <div data-auth-status aria-live="polite"></div>
   </nav>
 
   <!-- ══ TICKER ════════════════════════════════ -->
@@ -169,5 +170,9 @@
 
   <div id="sr-announcements" class="visually-hidden" role="status" aria-live="assertive" aria-atomic="true"></div>
   <script src="scripts/normal.js"></script>
+  <script type="module">
+    import { watchAuthUI } from "./scripts/auth.js";
+    watchAuthUI();
+  </script>
 </body>
 </html>
